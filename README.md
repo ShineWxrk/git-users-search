@@ -1,7 +1,8 @@
 #  Git users search
 ___
-**😾Git users search** - application that uses the GitHub API to find and browse GitHub profiles with adaptive layout and theme selection🎨.
+[**😾Git users search**](https://shinewxrk.github.io/git-users-search/) - application that uses the GitHub API to find and browse GitHub profiles with adaptive layout and theme selection🎨.
 
+[Github-pages🔍](https://shinewxrk.github.io/git-users-search/)
 
 ✔️ **Skills**
 
