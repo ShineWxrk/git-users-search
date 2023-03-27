@@ -23,11 +23,22 @@
   }
 
   h3 {
-    background-image: -webkit-linear-gradient(45deg, var(--main-color), var(--main-color2));
+    background: rgb(124,115,255);
+    background: linear-gradient(45deg, rgba(124,115,255,1) 0%, rgba(255,138,160,1) 100%); 
+    background-size: 200%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 0.75rem;
     line-height: 1.5;
+    animation: background 3s infinite;
+    @keyframes background {
+      50% {
+        background-position: 100%;
+      }
+      100% {
+        background-position: 0%;
+      }
+    }
 
     &::before {
       content: '@';

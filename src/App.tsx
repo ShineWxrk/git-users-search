@@ -25,22 +25,23 @@ function App() {
   }
 
   useEffect(() => {
+    document.title = 'Git users search'
     fetchUser('ShineWxrk')
   }, [])
 
   const handleMouseMove = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     let x = event.clientX
     let y = event.clientY
-    let color = Math.round((x + y) / 8)
-    if (color >= 255) color = 255
-
+    x = Math.round(x / window.innerWidth * 100)
+    y = Math.round(y / window.innerHeight * 100)
+    console.log(`x = ${x}, y = ${y}`)
     event.currentTarget.style.setProperty(
-      "--main-color",
-      `rgb(${color}, 95, 255`
+      "--posX",
+      `${x}%`
     )
     event.currentTarget.style.setProperty(
-      "--main-color2",
-      `rgb(100, 0, ${color})`
+      "--posY",
+      `${y}%`
     )
   }
 

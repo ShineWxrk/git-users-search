@@ -27,10 +27,23 @@
   @media (min-width: 767px) {
     padding: 10px 10px 10px 30px;
   }
+  
 
   &>button {
-    background: linear-gradient(45deg, var(--main-color), var(--main-color2));
+    background: rgb(63,127,251);
+    background: linear-gradient(90deg, rgba(63,127,251,1) 0%, rgba(252,70,107,1) 100%);
+    background-size: 200%;
+
     flex-shrink: 0;
+    animation: background 3s infinite;
+    @keyframes background {
+      50% {
+        background-position: 100%;
+      }
+      100% {
+        background-position: 0%;
+      }
+    }
   }
 }
 
