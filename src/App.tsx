@@ -1,39 +1,67 @@
-import { useState } from "react";
-import { Container } from "components/Container";
-import { Search } from "components/Search";
-import { TheHeader } from "components/TheHeader";
-import { UserCard } from "components/UserCard";
-import { defaultUser } from "mock";
-import { GithubError, GithubUser, LocalGithubUser } from "types";
-import { isGitHubUser } from "utils/typeguards";
-import { extractLocalUser } from "utils/extract-local-user";
+import { useState } from "react"
+import { Container } from "components/Container"
+import { Search } from "components/Search"
+import { TheHeader } from "components/TheHeader"
+import { UserCard } from "components/UserCard"
+import { defaultUser } from "mock"
+import { GithubError, GithubUser, LocalGithubUser } from "types"
+import { isGitHubUser } from "utils/typeguards"
+import { extractLocalUser } from "utils/extract-local-user"
 
-const BASE_URL = 'https://api.github.com/users/'
+const BASE_URL = "https://api.github.com/users/"
 
 function App() {
-  const [user, setUser] = useState<LocalGithubUser | null>(defaultUser)
+  // const [user, setUser] = useState<LocalGithubUser | null>(() => {
+  //   const initialState = fetchUser('ShineWxrk');
+  //   return initialState})
+
+  const [user, setUser] = useState<LocalGithubUser | null>(null)
+  const [firstInit, setfirstInit] = useState(true)
 
   const fetchUser = async (username: string) => {
     const url = BASE_URL + username
     const res = await fetch(url)
-    const user = await res.json() as GithubUser | GithubError
+    const user = (await res.json()) as GithubUser | GithubError
 
-    if(isGitHubUser(user)) {
+    if (isGitHubUser(user)) {
       setUser(extractLocalUser(user))
     } else {
       setUser(null)
     }
   }
 
+  if (user === null && firstInit) {
+    fetchUser('ShineWxrk')
+    setfirstInit(false)
+  }
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    let x = event.clientX
+    let y = event.clientY
+    let color = Math.round((x + y) / 8)
+    if (color >= 255) color = 255
+
+    event.currentTarget.style.setProperty(
+      "--main-color",
+      `rgb(${color}, 95, 255`
+    )
+    event.currentTarget.style.setProperty(
+      "--main-color2",
+      `rgb(100, 0, ${color})`
+    )
+  }
+
+  
+
   return (
-    <Container>
-      <TheHeader />
-      <Search hasError={!user} onSumbit={fetchUser}/>
-      { user && (
-        <UserCard {...user}/>
-      )}
-    </Container>
-  );
+    <div onMouseMove={handleMouseMove} style={{height: "100vh"}}>
+      <Container>
+        <TheHeader />
+        <Search hasError={!user} onSumbit={fetchUser} />
+        {user && <UserCard {...user} />}
+      </Container>
+    </div>
+  )
 }
 
-export default App;
+export default App

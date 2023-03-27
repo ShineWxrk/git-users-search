@@ -26,8 +26,8 @@ export const Search = ({ hasError, onSumbit }: SearchProps) => {
   return (
   <form onSubmit={handleSumbit} autoComplete="off">
     <div className={styles.search}>
-      <label htmlFor="search" className={styles.label}>
-        <SearchIcon />
+      <label htmlFor="search">
+        <SearchIcon className={styles.icon}/>
       </label>
       <input type="text" className={styles.textField} id="search" name="username" placeholder="Search GitHub username..." />
       {hasError && (

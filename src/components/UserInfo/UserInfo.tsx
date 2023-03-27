@@ -11,20 +11,20 @@ interface UserInfoProps extends Pick<LocalGithubUser, 'blog' | 'company' | 'loca
 export const UserInfo = ({ blog, company, location, twitter }: UserInfoProps) => {
   const items: InfoItemProps[] = [
     {
-      icon: <IconLocation />,
+      icon: <IconLocation className={styles.icon}/>,
       text: location,
     },
     {
-      icon: <IconBlog />,
+      icon: <IconBlog className={styles.icon}/>,
       text: blog,
       isLink: true,
     },
     {
-      icon: <IconTwitter />,
+      icon: <IconTwitter className={styles.icon}/>,
       text: twitter,
     },
     {
-      icon: <IconCompany />,
+      icon: <IconCompany className={styles.icon}/>,
       text: company,
     }
   ]

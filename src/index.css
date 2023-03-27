@@ -6,7 +6,9 @@
 }
 
 :root {
-  --main-color: #0079FF;
+  --main-color: rgb(0, 94, 255);
+  --main-color2: rgb(255, 13, 0);
+  --degree: 0deg;
   --main-color-hover: #60ABFF;
 
   --white: #FFF;
