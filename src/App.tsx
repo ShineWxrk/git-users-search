@@ -1,9 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Container } from "components/Container"
 import { Search } from "components/Search"
 import { TheHeader } from "components/TheHeader"
 import { UserCard } from "components/UserCard"
-import { defaultUser } from "mock"
 import { GithubError, GithubUser, LocalGithubUser } from "types"
 import { isGitHubUser } from "utils/typeguards"
 import { extractLocalUser } from "utils/extract-local-user"
@@ -11,12 +10,7 @@ import { extractLocalUser } from "utils/extract-local-user"
 const BASE_URL = "https://api.github.com/users/"
 
 function App() {
-  // const [user, setUser] = useState<LocalGithubUser | null>(() => {
-  //   const initialState = fetchUser('ShineWxrk');
-  //   return initialState})
-
   const [user, setUser] = useState<LocalGithubUser | null>(null)
-  const [firstInit, setfirstInit] = useState(true)
 
   const fetchUser = async (username: string) => {
     const url = BASE_URL + username
@@ -30,10 +24,9 @@ function App() {
     }
   }
 
-  if (user === null && firstInit) {
+  useEffect(() => {
     fetchUser('ShineWxrk')
-    setfirstInit(false)
-  }
+  }, [])
 
   const handleMouseMove = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     let x = event.clientX
@@ -50,8 +43,6 @@ function App() {
       `rgb(100, 0, ${color})`
     )
   }
-
-  
 
   return (
     <div onMouseMove={handleMouseMove} style={{height: "100vh"}}>
