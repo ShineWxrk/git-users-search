@@ -23,7 +23,7 @@ function App() {
       setUser(null)
     }
   }
-
+ 
   useEffect(() => {
     document.title = 'Git users search'
     fetchUser('ShineWxrk')
