@@ -1,6 +1,7 @@
 import { UserInfo } from 'components/UserInfo';
 import { UserStat } from 'components/UserStat/UserStat';
 import { UserTitle } from 'components/UserTitle/UserTitle';
+import { UserChart } from 'components/UserChart/UserChart';
 import { LocalGithubUser } from 'types';
 import styles from './UserCard.module.scss';
 
@@ -15,5 +16,6 @@ export const UserCard = (props: UserCardProps) => (
     </p>
     <UserStat repos={props.repos} followers={props.followers} following={props.following}/>
     <UserInfo blog={props.blog} company={props.company} location={props.location} twitter={props.twitter}/>
+    <UserChart login={props.login}/>
   </div>
 )

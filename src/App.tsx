@@ -29,30 +29,12 @@ function App() {
     fetchUser('ShineWxrk')
   }, [])
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    let x = event.clientX
-    let y = event.clientY
-    x = Math.round(x / window.innerWidth * 100)
-    y = Math.round(y / window.innerHeight * 100)
-    console.log(`x = ${x}, y = ${y}`)
-    event.currentTarget.style.setProperty(
-      "--posX",
-      `${x}%`
-    )
-    event.currentTarget.style.setProperty(
-      "--posY",
-      `${y}%`
-    )
-  }
-
   return (
-    <div onMouseMove={handleMouseMove} style={{height: "100vh"}}>
-      <Container>
-        <TheHeader />
-        <Search hasError={!user} onSumbit={fetchUser} />
-        {user && <UserCard {...user} />}
-      </Container>
-    </div>
+    <Container>
+      <TheHeader />
+      <Search hasError={!user} onSumbit={fetchUser} />
+      {user && <UserCard {...user} />}
+    </Container>
   )
 }
 
