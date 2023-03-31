@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/git-users-search/static/css/main.553e2431.css",
+    "main.css": "/git-users-search/static/css/main.fbdc62bb.css",
     "main.js": "/git-users-search/static/js/main.2d0007dd.js",
     "static/media/icon-sun.svg": "/git-users-search/static/media/icon-sun.c3177fa453380a8147df081ec10c2789.svg",
     "static/media/icon-website.svg": "/git-users-search/static/media/icon-website.cf4904e442232792159e0e1bd2d500aa.svg",
@@ -10,11 +10,11 @@
     "static/media/icon-moon.svg": "/git-users-search/static/media/icon-moon.f5076b814caae9443a0b8ee24682ed13.svg",
     "static/media/icon-search.svg": "/git-users-search/static/media/icon-search.0cc0c98424cc75d5e1dfbb9e3abb6785.svg",
     "static/media/icon-location.svg": "/git-users-search/static/media/icon-location.f6d18983ab4be8b3314d51c208fba4d4.svg",
-    "main.553e2431.css.map": "/git-users-search/static/css/main.553e2431.css.map",
+    "main.fbdc62bb.css.map": "/git-users-search/static/css/main.fbdc62bb.css.map",
     "main.2d0007dd.js.map": "/git-users-search/static/js/main.2d0007dd.js.map"
   },
   "entrypoints": [
-    "static/css/main.553e2431.css",
+    "static/css/main.fbdc62bb.css",
     "static/js/main.2d0007dd.js"
   ]
 }
